@@ -8,6 +8,7 @@ At the end show the total unused images count and total size
     ./unused-image.sh -p /path/of/your/project
 The '~/FlashScreen-568h@2x.png' was not referenced in any file ,the file size = 875KB
 
+============= Total 2 unused image files And Total Size = 887KB =============
 ## show and clean unused image file
 
     ./unused-image.sh -r -p /path/of/your/project
