@@ -12,3 +12,5 @@ The '~/FlashScreen-568h@2x.png' was not referenced in any file ,the file size = 
 ## show and clean unused image file
 
     ./unused-image.sh -r -p /path/of/your/project
+
+sheet show scan results
