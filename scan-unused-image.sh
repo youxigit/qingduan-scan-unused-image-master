@@ -48,24 +48,24 @@ check_files=`find $PRJ_ROOT -name '*.xib' -o -name '*.storyboard' -o -name '*.[m
 
 for png in `find $PRJ_ROOT -name '*.png'`
 do
-    match_name=`basename $png`
+    match_name=`basename "$png"`
 
     suffix1="@2x.png"
     suffix2=".9.png"
     suffix3=".png"
     suffix4="@3x.png"
 
-    if [[ ${match_name/${suffix1}//} != $match_name ]]; then
-      match_name=${match_name%$suffix1}
-    elif [[ ${match_name/${suffix4}//} != $match_name ]]; then
-   		match_name=${match_name%$suffix4}
-   	elif [[ ${match_name/${suffix2}//} != $match_name ]]; then
-   		match_name=${match_name%$suffix2}
+    if [[ "${match_name/${suffix1}//}" != "$match_name" ]]; then
+      match_name="${match_name%$suffix1}"
+    elif [[ "${match_name/${suffix4}//}" != "$match_name" ]]; then
+   		match_name="${match_name%$suffix4}"
+   	elif [[ "${match_name/${suffix2}//}" != "$match_name" ]]; then
+   		match_name="${match_name%$suffix2}"
     else
-    	match_name=${match_name%$suffix3}
+    	match_name="${match_name%$suffix3}"
     fi
 
-    dir_name=`dirname $png`
+    dir_name=`dirname "$png"`
     if [[ $dir_name =~ .bundle$ ]] || [[ $dir_name =~ .appiconset$ ]] || [[ $dir_name =~ .launchimage$ ]]; then
       continue
     fi
@@ -80,8 +80,8 @@ do
   	done
 
   	if ! $referenced ; then
-        SIZEOUT=`ls -lh $png | awk '{print $5}'`
-        SIZE=`ls -l $png | awk '{print $5}'`
+        SIZEOUT=`ls -lh "$png" | awk '{print $5}'`
+        SIZE=`ls -l "$png" | awk '{print $5}'`
   		echo "The '$png' was not referenced in any file ,the file size = $SIZEOUT"
         filename=`basename $png`
 
