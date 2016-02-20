@@ -42,7 +42,7 @@ while getopts ":rp:" optname
     #echo "OPTIND is now $OPTIND"
 done
 
-#cd $PRJ_ROOT
+rm unused-images.csv
 
 check_files=`find $PRJ_ROOT -name '*.xib' -o -name '*.storyboard' -o -name '*.[mh]'  -o -name '*.pch' -o -name '*.java' -o -name '*.xml'`
 
@@ -80,11 +80,12 @@ do
   	done
 
   	if ! $referenced ; then
+        SIZEOUT=`ls -lh $png | awk '{print $5}'`
         SIZE=`ls -l $png | awk '{print $5}'`
-  		echo "The '$png' was not referenced in any file ,the file size = `expr $SIZE / 1024`KB"
+  		echo "The '$png' was not referenced in any file ,the file size = $SIZEOUT"
         filename=`basename $png`
 
-        echo $filename,`expr $SIZE / 1024` KB >> unused-images.csv
+        echo $filename,$SIZEOUT >> unused-images.csv
   		COUNT=`expr $COUNT + 1`
         TOTALSIZE=`expr $TOTALSIZE + $SIZE`
   		if $REMOVE ; then
