@@ -13,4 +13,6 @@ The '~/FlashScreen-568h@2x.png' was not referenced in any file ,the file size = 
 
     ./unused-image.sh -r -p /path/of/your/project
 
-sheet show scan results
+##create table show scan results
+
+![](https://raw.githubusercontent.com/youxigit/qingduan-scan-unused-image-master/master/scan-result.png)
