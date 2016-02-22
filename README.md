@@ -9,6 +9,8 @@ At the end show the total unused images count and total size
     ./scan-unused-image -p /path/of/your/project
 The '~/FlashScreen-568h@2x.png' was not referenced in any file ,the file size = 875KB
 
+The shell script work at xcasset,even png in the imageasset ,it can be check out.
+
 ============= Total 2 unused image files And Total Size = 887KB =============
 ## show and clean unused image file
 
