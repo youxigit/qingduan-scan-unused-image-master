@@ -42,7 +42,7 @@ while getopts ":rp:" optname
     #echo "OPTIND is now $OPTIND"
 done
 
-rm unused-images.csv
+rm -rf unused-images.csv
 
 check_files=`find $PRJ_ROOT -name '*.xib' -o -name '*.storyboard' -o -name '*.[mh]'  -o -name '*.pch' -o -name '*.java' -o -name '*.xml'`
 
