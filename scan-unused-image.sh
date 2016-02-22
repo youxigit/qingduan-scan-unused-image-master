@@ -44,7 +44,7 @@ done
 
 rm -rf unused-images.csv
 
-check_files=`find $PRJ_ROOT -name '*.xib' -o -name '*.storyboard' -o -name '*.[mh]'  -o -name '*.pch' -o -name '*.java' -o -name '*.xml'`
+check_files=`find $PRJ_ROOT -name '*.xib' -o -name '*.storyboard' -o -name '*.[mh]'  -o -name '*.pch' -o -name '*.java' -o -name '*.xml' -o -name '*.imageset'`
 
 for png in `find $PRJ_ROOT -name '*.png'`
 do
@@ -68,6 +68,9 @@ do
     dir_name=`dirname "$png"`
     if [[ $dir_name =~ .bundle$ ]] || [[ $dir_name =~ .appiconset$ ]] || [[ $dir_name =~ .launchimage$ ]]; then
       continue
+    elif [[ $dir_name =~ .imageset$ ]]; then
+        imageset_name=`basename "$dir_name"`
+        match_name="${imageset_name%.*}"
     fi
 
     referenced=false
